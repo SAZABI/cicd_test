@@ -42,11 +42,7 @@ public class ChannelController {
                                                @RequestParam String end,
                                                @RequestParam String category,
     		                                   Pageable pageable) {
-    	System.out.println(custId);
-    	System.out.println(start);
-    	System.out.println(end);
-    	System.out.println(category);
-    	
+
         return channelService.findChannelHistory(start, end, custId, category, pageable);
     }
     
