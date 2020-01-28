@@ -1,7 +1,16 @@
-FROM websphere-liberty:webProfile7
+FROM java:8-jre 
 
-ADD target/crmci_channel-0.0.1-SNAPSHOT.jar /config/dropins/
+ENV VERTICLE_FILE crmci_channel-0.0.1-SNAPSHOT.jar
+
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
 
 EXPOSE 9080
 
-ENV LICENSE accept
+# Copy your fat jar to the container
+COPY target/crmci_channel-0.0.1-SNAPSHOT.jar $VERTICLE_HOME/
+
+# Launch the verticle
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar $VERTICLE_FILE"]
