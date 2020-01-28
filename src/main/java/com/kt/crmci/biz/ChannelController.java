@@ -60,6 +60,7 @@ public class ChannelController {
         channelService.saveChannelLog(body);
     }
     
+    
     // updateSendResult
     // sendChannelMessage (CI to Kafka)
 
