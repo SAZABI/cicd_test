@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kt.crmci.bean.ChannelLog;
+import com.kt.crmci.bean.ChnLog;
 import com.kt.crmci.bean.ChannelLogRepository;
 
 @RestController
@@ -24,42 +24,42 @@ public class TestDateController {
 	}
 	
 	@GetMapping(value="/findAllTest")
-	public List<ChannelLog> findAllTest() {
+	public List<ChnLog> findAllTest() {
 		return rep.findAll();
 	}
 	
 	@GetMapping(value="/findAllTestData")
-	public Page<ChannelLog> findAllTestData(Pageable pageable) {
+	public Page<ChnLog> findAllTestData(Pageable pageable) {
 		return rep.findAll(pageable);
 	}
 	
 	@GetMapping(value="/findTestByCustId")
-    public Page<ChannelLog> findTestDataByCustId(@RequestParam String custId, Pageable pageable) {
+    public Page<ChnLog> findTestDataByCustId(@RequestParam String custId, Pageable pageable) {
         return rep.findByCustId(custId, pageable);
     }
 	
 	@GetMapping(value="/findTestByCategory")
-    public Page<ChannelLog> findTestByCategory(@RequestParam String category, Pageable pageable) {
+    public Page<ChnLog> findTestByCategory(@RequestParam String category, Pageable pageable) {
 		return rep.findByCategoryLctgNm(category, pageable);
     }
 	
 	@GetMapping(value="/findTestByCategorySms")
-    public Page<ChannelLog> findTestByCategorySms(Pageable pageable) {
+    public Page<ChnLog> findTestByCategorySms(Pageable pageable) {
 		return rep.findByCategoryLctgNm("SMS", pageable);
     }
 	
 	@GetMapping(value="/findTestByCategoryFax")
-    public Page<ChannelLog> findTestByCategoryFax(Pageable pageable) {
+    public Page<ChnLog> findTestByCategoryFax(Pageable pageable) {
 		return rep.findByCategoryLctgNm("FAX", pageable);
     }
 	
 	@GetMapping(value="/findTestByCategoryEmail")
-    public Page<ChannelLog> findTestByCategoryEmail(Pageable pageable) {
+    public Page<ChnLog> findTestByCategoryEmail(Pageable pageable) {
 		return rep.findByCategoryLctgNm("EMAIL", pageable);
     }
 
 	@GetMapping(value="/findByCreatedBetween")
-    public Page<ChannelLog> findByCreatedBetween(@RequestParam String start, 
+    public Page<ChnLog> findByCreatedBetween(@RequestParam String start, 
     		                                     @RequestParam String end, 
     		                                     Pageable pageable) {
 
@@ -70,7 +70,7 @@ public class TestDateController {
     }
 	
 	@GetMapping(value="/findByCustIdAndCategoryLctgNm")
-    public Page<ChannelLog> findByCustIdAndCategoryLctgNm(@RequestParam String custId, 
+    public Page<ChnLog> findByCustIdAndCategoryLctgNm(@RequestParam String custId, 
     		                                              @RequestParam String category, 
     		                                              Pageable pageable) {
 		System.out.println(custId);
@@ -80,7 +80,7 @@ public class TestDateController {
     }
 	
 	@GetMapping(value="/findByCreatedBetweenAndCustId")
-    public Page<ChannelLog> findByCreatedBetweenAndCustId(@RequestParam String start, 
+    public Page<ChnLog> findByCreatedBetweenAndCustId(@RequestParam String start, 
     		                                              @RequestParam String end,
     		                                              @RequestParam String custId, 
     		                                              Pageable pageable) {
@@ -95,7 +95,7 @@ public class TestDateController {
 	@GetMapping(value="/insertTest")
 	public void insertTestData() {
 		
-		ChannelLog data = new ChannelLog();		
+		ChnLog data = new ChnLog();		
 		System.out.println("_id : " + data.get_id());
 				
 		data.setCreated("2020-01-01 05:00:00");

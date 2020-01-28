@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kt.crmci.bean.ChannelLog;
+import com.kt.crmci.bean.ChnLog;
 import com.kt.crmci.bean.ChannelLogRepository;
 
 @Service
@@ -22,16 +22,16 @@ public class ChannelService {
     // findCustomer
     // findCode
 	
-	public Page<ChannelLog> findChannelHistory(String start, String end, String custId, String category, Pageable pageable) {
+	public Page<ChnLog> findChannelHistory(String start, String end, String custId, String category, Pageable pageable) {
 		return channelLogRepository.findByCreatedBetweenAndCustIdAndCategoryLctgNm(start, end, custId, category, pageable);		
 	}
 	
-    public ChannelLog findChannelHistoryDetail(String _id) {
-        Optional<ChannelLog> c = channelLogRepository.findById(_id);
+    public ChnLog findChannelHistoryDetail(String _id) {
+        Optional<ChnLog> c = channelLogRepository.findById(_id);
         return c.get();
     }
 
-    public void saveChannelLog(ChannelLog body) {
+    public void saveChannelLog(ChnLog body) {
         channelLogRepository.save(body);
         
         // sendChannelMessage (CI to Kafka)

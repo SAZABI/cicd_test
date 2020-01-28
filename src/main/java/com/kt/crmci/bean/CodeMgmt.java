@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class Code {
+public class CodeMgmt {
 	
 	@Id
     private String _id;

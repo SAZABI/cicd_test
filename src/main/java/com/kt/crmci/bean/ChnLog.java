@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class ChannelLog {
+public class ChnLog {
 
     @Id
     private String _id;

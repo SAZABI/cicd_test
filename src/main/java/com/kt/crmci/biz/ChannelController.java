@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kt.crmci.bean.ChannelLog;
+import com.kt.crmci.bean.ChnLog;
 
 @RestController
 @RequestMapping(value = "/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
@@ -37,7 +37,7 @@ public class ChannelController {
     // findCode
     
     @GetMapping(value = FIND_CHANNEL_HIST)
-    public Page<ChannelLog> findChannelHistory(@RequestParam String custId, 
+    public Page<ChnLog> findChannelHistory(@RequestParam String custId, 
     		                                   @RequestParam String start,
                                                @RequestParam String end,
                                                @RequestParam String category,
@@ -51,12 +51,12 @@ public class ChannelController {
     }
     
     @GetMapping(value = FIND_CHANNEL_HIST_DETAIL)
-    public ChannelLog findChannelHistoryDetail(@RequestParam String _id) {
+    public ChnLog findChannelHistoryDetail(@RequestParam String _id) {
         return channelService.findChannelHistoryDetail(_id);
     }
     
     @PostMapping(value = SAVE_CHANNEL_LOG)
-    public void saveChannelLog(@RequestBody ChannelLog body) {
+    public void saveChannelLog(@RequestBody ChnLog body) {
         channelService.saveChannelLog(body);
     }
     
