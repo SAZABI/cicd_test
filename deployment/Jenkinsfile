@@ -43,15 +43,15 @@ podTemplate(label: label,
 	  stage('Build Docker image') {
 	   container('docker') {
 		  docker.withRegistry("", "${dockerHub}") {
-    		sh "docker build . -t ${image}-${prefix}:${tag}"
-    		sh "docker push ${image}-${prefix}:${tag}"
+    		sh "docker build . -t ${image}:${tag}"
+    		sh "docker push ${image}:${tag}"
 		  }
 	    }
 	  }
       /*
 	  stage('Image Vulnerability Scanning') {
 		 container('docker'){
-		  aquaMicroscanner imageName: 'docker.io/${image}-${prefix}:${tag}', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html'
+		  aquaMicroscanner imageName: 'docker.io/${image}:${tag}', notCompliesCmd: '', onDisallowed: 'ignore', outputFormat: 'html'
 		  }
 	  }
       */
