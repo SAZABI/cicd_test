@@ -5,7 +5,7 @@ ENV VERTICLE_FILE crmci_channel-0.0.1-SNAPSHOT.jar
 # Set the location of the verticles
 ENV VERTICLE_HOME /usr/verticles
 
-EXPOSE 9080
+EXPOSE 8080
 
 # Copy your fat jar to the container
 COPY target/crmci_channel-0.0.1-SNAPSHOT.jar $VERTICLE_HOME/
