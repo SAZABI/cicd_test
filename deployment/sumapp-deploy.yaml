@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: crmci-app
-        image: docker.io/ktdatagarage/crmci-app:0.0.1
+        image: docker.io/ktdatagarage/crmci-app:0.0.2
         imagePullPolicy: Always
         ports:
         - containerPort: 9080
